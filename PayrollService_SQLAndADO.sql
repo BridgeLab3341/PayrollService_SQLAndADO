@@ -15,3 +15,6 @@ Insert Into Employee_PayRoll(Name,Salary,StartDate) values('Mani',160000,2023-04
 Insert Into Employee_PayRoll(Name,Salary,StartDate) values('Rani',110000,2019-03-03)
 Insert Into Employee_PayRoll(Name,Salary,StartDate) values('Shekar',100000,2021-08-19)
 Insert Into Employee_PayRoll(Name,Salary,StartDate) values('Kumar',150000,2020-06-08)
+
+--UC4
+Select * from Employee_PayRoll
