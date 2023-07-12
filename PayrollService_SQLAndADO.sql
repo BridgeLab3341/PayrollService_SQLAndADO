@@ -18,3 +18,7 @@ Insert Into Employee_PayRoll(Name,Salary,StartDate) values('Kumar',150000,2020-0
 
 --UC4
 Select * from Employee_PayRoll
+
+--UC5
+Select Salary from Employee_PayRoll Where Name='Rani'
+Select * from Employee_PayRoll where StartDate Between cast('2021-01-01' as Date) and CURRENT_TIMESTAMP;
