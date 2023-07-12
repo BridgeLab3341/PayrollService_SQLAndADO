@@ -34,3 +34,19 @@ Update Employee_PayRoll Set Gender='F' where Name='Rani'
 Update Employee_PayRoll Set Gender='M' where Name='Shekar'
 Update Employee_PayRoll Set Gender='M' where Name='Kumar'
 
+--UC7
+Insert into Employee_PayRoll values('Moni',130000,2020-09-23,'F')
+Insert into Employee_PayRoll values('Radha',140000,2019-04-13,'F')
+Insert into Employee_PayRoll values('Sandhya',110000,2021-07-03,'F')
+Insert into Employee_PayRoll values('Sahana',150000,2022-06-23,'F')
+
+Select Sum(Salary) as TotalSalary_Male from Employee_PayRoll where Gender='M' group by Gender;
+Select Sum(Salary) as TotalSalary_Female from Employee_PayRoll where Gender='F' group by Gender;
+Select AVG(Salary) as AverageSalary_Male from Employee_PayRoll Where Gender='M' group by Gender;
+Select AVG(Salary) as AverageSalary_Female from Employee_PayRoll Where Gender='F' group by Gender;
+Select Min(Salary) as MinimumSalary_Male from Employee_PayRoll Where Gender='M' group by Gender;
+Select Min(Salary) as MinimumSalary_Female from Employee_PayRoll Where Gender='F' group by Gender;
+Select Max(Salary) as MaximumSalary_Male from Employee_PayRoll Where Gender='M' group by Gender;
+Select Max(Salary) as MaximumSalary_Female from Employee_PayRoll Where Gender='F' group by Gender;
+Select Count(Salary) as Total_Males from Employee_PayRoll Where Gender='M' group by Gender;
+Select Count(Salary) as Total_Females from Employee_PayRoll Where Gender='F' group by Gender;
