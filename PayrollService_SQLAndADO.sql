@@ -56,4 +56,18 @@ Select Count(Salary) as Total_Females from Employee_PayRoll Where Gender='F' gro
 Alter Table Employee_PayRoll Add Phone varchar(10),Address varchar(100) Not Null Default 'abc',
 Department varchar(30) Not Null Default 'xyz'
 
-
+--UC9
+Alter Table Employee_PayRoll Add BasicPay Bigint, Deductions Bigint,TaxablePay Bigint,
+IncomeTax Bigint,NetPay Bigint;
+Update Employee_PayRoll set Phone='9856756755',Address='Banglore',Department='R & D',BasicPay=50000,Deductions=5000,TaxablePay=12000,IncomeTax=2500,NetPay=1400;
+Update Employee_PayRoll set Phone='8766755645',Address='Chennai',Department='Production',BasicPay=55000,Deductions=5200,TaxablePay=12000,IncomeTax=2500,NetPay=1400;
+Update Employee_PayRoll set Phone='9675767546',Address='Delhi',Department='Maintance',BasicPay=52000,Deductions=5400,TaxablePay=12000,IncomeTax=2500,NetPay=1400;
+Update Employee_PayRoll set Phone='7856567567',Address='Banglore',Department='Testing',BasicPay=50000,Deductions=5900,TaxablePay=12000,IncomeTax=2500,NetPay=1400;
+Update Employee_PayRoll set Phone='7756746778',Address='Hyderabad',Department='Design',BasicPay=53000,Deductions=5700,TaxablePay=12000,IncomeTax=2500,NetPay=1400;
+Update Employee_PayRoll set Phone='7897678687',Address='Mumbai',Department='Production',BasicPay=54000,Deductions=5600,TaxablePay=12000,IncomeTax=2500,NetPay=1400;
+Update Employee_PayRoll set Phone='8967867876',Address='Chennai',Department='R & D',BasicPay=51000,Deductions=5800,TaxablePay=12000,IncomeTax=2500,NetPay=1400;
+Update Employee_PayRoll set Phone='8978878675',Address='Banglore',Department='Maintance',BasicPay=53000,Deductions=5700,TaxablePay=12000,IncomeTax=2500,NetPay=1400;
+Update Employee_PayRoll set Phone='6875878678',Address='Hyderabad',Department='Production',BasicPay=52000,Deductions=5400,TaxablePay=12000,IncomeTax=2500,NetPay=1400;
+Update Employee_PayRoll set Phone='9808767886',Address='Delhi',Department='Design',BasicPay=54000,Deductions=5600,TaxablePay=12000,IncomeTax=2500,NetPay=1400;
+Update Employee_PayRoll set Phone='8977978989',Address='Banglore',Department='Production',BasicPay=55000,Deductions=5000,TaxablePay=12000,IncomeTax=2500,NetPay=1400;
+Update Employee_PayRoll set Phone='8979676787',Address='Mumbai',Department='Testing',BasicPay=52000,Deductions=5500,TaxablePay=12000,IncomeTax=2500,NetPay=1400;
