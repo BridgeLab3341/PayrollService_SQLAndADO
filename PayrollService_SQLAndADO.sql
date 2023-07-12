@@ -50,3 +50,10 @@ Select Max(Salary) as MaximumSalary_Male from Employee_PayRoll Where Gender='M' 
 Select Max(Salary) as MaximumSalary_Female from Employee_PayRoll Where Gender='F' group by Gender;
 Select Count(Salary) as Total_Males from Employee_PayRoll Where Gender='M' group by Gender;
 Select Count(Salary) as Total_Females from Employee_PayRoll Where Gender='F' group by Gender;
+
+--Section 2: ER Diagram
+--UC8
+Alter Table Employee_PayRoll Add Phone varchar(10),Address varchar(100) Not Null Default 'abc',
+Department varchar(30) Not Null Default 'xyz'
+
+
