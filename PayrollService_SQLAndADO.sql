@@ -71,3 +71,10 @@ Update Employee_PayRoll set Phone='6875878678',Address='Hyderabad',Department='P
 Update Employee_PayRoll set Phone='9808767886',Address='Delhi',Department='Design',BasicPay=54000,Deductions=5600,TaxablePay=12000,IncomeTax=2500,NetPay=1400;
 Update Employee_PayRoll set Phone='8977978989',Address='Banglore',Department='Production',BasicPay=55000,Deductions=5000,TaxablePay=12000,IncomeTax=2500,NetPay=1400;
 Update Employee_PayRoll set Phone='8979676787',Address='Mumbai',Department='Testing',BasicPay=52000,Deductions=5500,TaxablePay=12000,IncomeTax=2500,NetPay=1400;
+
+--UC10
+Insert into Employee_PayRoll(Name,Salary,StartDate,Gender,Phone,Address,Department,BasicPay,Deductions,TaxablePay,IncomeTax,NetPay)
+values('Terissa',150000,'2020-05-15','F','8767867887','Banglore','Sales',52000,5500,12000,2500,1400);
+Insert into Employee_PayRoll(Name,Salary,StartDate,Gender,Phone,Address,Department,BasicPay,Deductions,TaxablePay,IncomeTax,NetPay)
+values('Terissa',120000,'2021-07-25','F','9800988978','Banglore','Marketing',50000,5100,12000,2500,1400);
+Select * from Employee_PayRoll
