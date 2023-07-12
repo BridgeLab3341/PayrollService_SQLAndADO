@@ -78,3 +78,7 @@ values('Terissa',150000,'2020-05-15','F','8767867887','Banglore','Sales',52000,5
 Insert into Employee_PayRoll(Name,Salary,StartDate,Gender,Phone,Address,Department,BasicPay,Deductions,TaxablePay,IncomeTax,NetPay)
 values('Terissa',120000,'2021-07-25','F','9800988978','Banglore','Marketing',50000,5100,12000,2500,1400);
 Select * from Employee_PayRoll
+
+--UC11(Creating Table)
+Create Table DEPARTMENT(DepartmentId Int Primary Key,
+DeptName Varchar(30),CountryId Int Foreign Key	References dbo.Employee_PayRoll(Id));
