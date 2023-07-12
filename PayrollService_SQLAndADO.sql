@@ -22,3 +22,15 @@ Select * from Employee_PayRoll
 --UC5
 Select Salary from Employee_PayRoll Where Name='Rani'
 Select * from Employee_PayRoll where StartDate Between cast('2021-01-01' as Date) and CURRENT_TIMESTAMP;
+
+--UC6
+Alter Table Employee_PayRoll Add Gender char;
+Update Employee_PayRoll Set Gender='M' where Name='Somu'
+Update Employee_PayRoll Set Gender='M' where Name='Anil'
+Update Employee_PayRoll Set Gender='M' where Name='Sandy'
+Update Employee_PayRoll Set Gender='M' where Name='Ganesh'
+Update Employee_PayRoll Set Gender='M' where Name='Mani'
+Update Employee_PayRoll Set Gender='F' where Name='Rani'
+Update Employee_PayRoll Set Gender='M' where Name='Shekar'
+Update Employee_PayRoll Set Gender='M' where Name='Kumar'
+
