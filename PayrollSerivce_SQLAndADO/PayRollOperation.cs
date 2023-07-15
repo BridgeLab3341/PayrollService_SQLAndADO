@@ -77,5 +77,21 @@ namespace PayrollSerivce_SQLAndADO
                 connection.Close();
             }
         }
+        public static void UpdateTheSalary()
+        {
+            try
+            {
+                string query = "Update Employee_PayRoll set Salary=3000000 where Id=14";
+                SqlCommand command = new SqlCommand(query, connection);
+                connection.Open();
+                command.ExecuteNonQuery();
+                Console.WriteLine("Update Record Successfully");
+                Console.WriteLine("----------------------------");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Somrthing Went Wrong "+ex);
+            }
+        }
     }
 }
