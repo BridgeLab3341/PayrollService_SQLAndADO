@@ -32,15 +32,15 @@ namespace PayrollSerivce_SQLAndADO
                 connection.Close();
             }
         }
-        public static SqlConnection connection= new SqlConnection("data source=(localdb)\\MSSQLLocalDB; initial catalog=Employee_PayRoll; integrated security=true");
+        public static SqlConnection connection= new SqlConnection("data source=(localdb)\\MSSQLLocalDB; initial catalog=PayRollService; integrated security=true");
         public static void RetrieveAllEmployeePayRollRecords()
         {
             try
             {
-                EmployeeData employee = new EmployeeData();
-                using(connection)
+                using (connection)
                 {
-                    string query = "Select from Employee_PayRoll";
+                    EmployeeData employee = new EmployeeData();
+                    string query = "Select * from Employee_PayRoll";
                     SqlCommand sql = new SqlCommand(query, connection);
                     sql.CommandType = CommandType.Text;
                     connection.Open();
@@ -64,7 +64,7 @@ namespace PayrollSerivce_SQLAndADO
                             employee.NetPay = reader.GetInt64(12);
                         }
                         Console.WriteLine(employee.Id + "\n" + employee.Name + "\n" + employee.Salary + "\n" + employee.StartDate + "\n" + employee.Gender + "\n" + employee.Phone + "\n" + employee.Address +
-                            "\n" + employee.Department + "\n" + employee.BasicPay + "\n" + employee.Deductions + "\n" + employee.TaxablePay + "\n" + employee.IncomeTax + "\n" + employee.NetPay);
+                        "\n" + employee.Department + "\n" + employee.BasicPay + "\n" + employee.Deductions + "\n" + employee.TaxablePay + "\n" + employee.IncomeTax + "\n" + employee.NetPay);
                     }
                 }
             }
