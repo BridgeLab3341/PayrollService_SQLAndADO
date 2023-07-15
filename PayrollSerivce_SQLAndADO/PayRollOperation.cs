@@ -11,6 +11,8 @@ namespace PayrollSerivce_SQLAndADO
 {
     public class PayRollOperation
     {
+        public static string connectionString = "data source=(localdb)\\MSSQLLocalDB; initial catalog=PayRollService";
+        SqlConnection sqlConne = new SqlConnection(connectionString);
         public static void CreateDatabase()
         {
             SqlConnection connection = new SqlConnection("data source=(localdb)\\MSSQLLocalDB; initial catalog=master; integrated security=true");
@@ -91,6 +93,32 @@ namespace PayrollSerivce_SQLAndADO
             catch (Exception ex)
             {
                 Console.WriteLine("Somrthing Went Wrong "+ex);
+            }
+        }
+        public  void UpdateSalaryByConnectingString(int id,double basicPay)
+        {
+            try
+            {
+                using(this.sqlConne)
+                {
+                    SqlCommand command = new SqlCommand("UpdateSalary", this.sqlConne);
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@id", id);
+                    command.Parameters.AddWithValue("@BasicPay",basicPay);
+                    this.sqlConne.Open();
+                    int rowsAffected = command.ExecuteNonQuery();
+                    this.sqlConne.Close();
+                    if (rowsAffected > 0)
+                        Console.WriteLine("BasicPay Updated Succssefully");
+                    else
+                    {
+                        Console.WriteLine("BasicPay Updated UnSuccssefully");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
             }
         }
     }
