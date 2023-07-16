@@ -248,5 +248,47 @@ namespace PayrollSerivce_SQLAndADO
                 throw new Exception(e.Message);
             }
         }
+        List<long> employeeSalary = new List<long>();
+        public void AddPayRoll()
+        {
+            EmployeeData employee = new EmployeeData();
+            int a = 1;
+            RetrieveAllEmployeePayRollRecords();
+            using (this.sqlConne)
+            {
+
+                SqlCommand command = new SqlCommand("AddPayRoll", this.sqlConne);
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+
+                foreach (var item in employeeSalary)
+                {
+
+                    employee.Deductions = (item * 20 / 100);
+                    employee.TaxablePay = item - employee.Deductions;
+                    employee.IncomeTax = employee.TaxablePay * 10 / 100;
+                    employee.NetPay = item - employee.IncomeTax;
+                    command.Parameters.AddWithValue("@Deductions", employee.Deductions);
+                    command.Parameters.AddWithValue("@TaxablePay", employee.TaxablePay);
+                    command.Parameters.AddWithValue("@IncomeTax", employee.IncomeTax);
+                    command.Parameters.AddWithValue("@NetPay", employee.NetPay);
+                    command.Parameters.AddWithValue("@EmpID", a);
+                    a++;
+
+                }
+
+                this.sqlConne.Open();
+                var result1 = command.ExecuteNonQuery();
+                this.sqlConne.Close();
+                if (result1 != 0)
+                {
+                    Console.WriteLine("Payroll Added Successfully");
+                }
+                else
+                {
+                    Console.WriteLine("Payroll Added UnSuccessfully");
+                }
+
+            }
+        }
     }
 }

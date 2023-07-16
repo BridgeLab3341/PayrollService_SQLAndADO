@@ -8,7 +8,7 @@
             bool flag = true;
             while (flag)
             {
-                Console.WriteLine("Choose Option To Perform the Operation\n1.Create DataBase\n2.Retrieve All Records\n3.Update Record(Salary)\n4.Update Record(Salary)\n5.Get Records In Particualr Range\n6.Find Operations\n7.Add New Employee\n8.Exit");
+                Console.WriteLine("Choose Option To Perform the Operation\n1.Create DataBase\n2.Retrieve All Records\n3.Update Record(Salary)\n4.Update Record(Salary)\n5.Get Records In Particualr Range\n6.Find Operations\n7.Add New Employee\n8.Add to Payroll\n9.Exit");
                 int option=Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
@@ -53,6 +53,9 @@
                         pay.AddEmployee(employe1);
                         break;
                         case 8:
+                        pay.AddPayRoll();
+                        break;
+                        case 9:
                         flag = false;
                         break;
                 }
