@@ -8,7 +8,7 @@
             bool flag = true;
             while (flag)
             {
-                Console.WriteLine("Choose Option To Perform the Operation\n1.Create DataBase\n2.Retrieve All Records\n3.Update Record(Salary)\n4.Update Record(Salary)\n5.Exit");
+                Console.WriteLine("Choose Option To Perform the Operation\n1.Create DataBase\n2.Retrieve All Records\n3.Update Record(Salary)\n4.Update Record(Salary)\n5.Get Records In Particualr Range\n6.Exit");
                 int option=Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
@@ -25,6 +25,13 @@
                         pay.UpdateSalaryByConnectingString(15,3000000);
                         break;
                         case 5:
+                        Console.WriteLine("Enter start date");
+                        DateTime fromDate = DateTime.Parse(Console.ReadLine());
+                        Console.WriteLine("Enter End date");
+                        DateTime ToDate = DateTime.Parse(Console.ReadLine());
+                        pay.GetDataInParticularRange(fromDate, ToDate);
+                        break;
+                        case 6:
                         flag = false;
                         break;
                 }
