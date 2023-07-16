@@ -166,5 +166,50 @@ namespace PayrollSerivce_SQLAndADO
                 Console.WriteLine("Something Went Wrong"+ex);
             }
         }
+        public void AbilityToFindOperation()
+        {
+            EmployeeData employee = new EmployeeData();
+            try
+            {
+                using(this.sqlConne)
+                {
+                    connection.Open();
+                    //Sum of Salary for Females
+                    string sumQuery = "Select sum(Salary) as TotalSalary from Employee_PayRoll where Gender='F' Group by Gender";
+                    SqlCommand command = new SqlCommand(sumQuery, this.sqlConne);
+                    long sumOfSalaryFemale = Convert.ToInt64(command.ExecuteScalar());
+                    //Average Salary for Females
+                    String AvgQuery = "Select AVG(Salary) as AverageSalary from Employee_PayRoll where Gender='F' Group by Gender";
+                    SqlCommand command1 = new SqlCommand(AvgQuery, this.sqlConne);
+                    decimal avgSalaryFemale = Convert.ToDecimal(command1.ExecuteScalar());
+                    // Calculate minimum salary for females
+                    string minQuery = "SELECT MIN(salary) FROM employee_payroll WHERE gender = 'F'";
+                    SqlCommand minCommand = new SqlCommand(minQuery, connection);
+                    long minSalaryFemale = Convert.ToInt64(minCommand.ExecuteScalar());
+                    // Calculate maximum salary for females
+                    string maxQuery = "SELECT MAX(salary) FROM employee_payroll WHERE gender = 'F'";
+                    SqlCommand maxCommand = new SqlCommand(maxQuery, connection);
+                    long maxSalaryFemale = Convert.ToInt64(maxCommand.ExecuteScalar());
+                    // Count the number of female employees
+                    string countQuery = "SELECT COUNT(*) FROM employee_payroll WHERE gender = 'F'";
+                    SqlCommand countCommand = new SqlCommand(countQuery, connection);
+                    int countFemale = Convert.ToInt32(countCommand.ExecuteScalar());
+                    // Count the number of male employees
+                    string countMaleQuery = "SELECT COUNT(*) FROM employee_payroll WHERE gender = 'M'";
+                    SqlCommand countMaleCommand = new SqlCommand(countMaleQuery, connection);
+                    int countMale = Convert.ToInt32(countMaleCommand.ExecuteScalar());
+                    Console.WriteLine("Sum of salary of females is: " + sumOfSalaryFemale);
+                    Console.WriteLine("Average salary of females is: " + avgSalaryFemale);
+                    Console.WriteLine("Minimum salary of females is: " + minSalaryFemale);
+                    Console.WriteLine("Maximum salary of females is: " + maxSalaryFemale);
+                    Console.WriteLine("Number of female employees: " + countFemale);
+                    Console.WriteLine("Number of male employees: " + countMale);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Something Went Wrong"+ex);
+            }
+        }
     }
 }

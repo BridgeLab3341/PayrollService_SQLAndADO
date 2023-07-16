@@ -8,7 +8,7 @@
             bool flag = true;
             while (flag)
             {
-                Console.WriteLine("Choose Option To Perform the Operation\n1.Create DataBase\n2.Retrieve All Records\n3.Update Record(Salary)\n4.Update Record(Salary)\n5.Get Records In Particualr Range\n6.Exit");
+                Console.WriteLine("Choose Option To Perform the Operation\n1.Create DataBase\n2.Retrieve All Records\n3.Update Record(Salary)\n4.Update Record(Salary)\n5.Get Records In Particualr Range\n6.Find Operations\n7.Exit");
                 int option=Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
@@ -32,6 +32,9 @@
                         pay.GetDataInParticularRange(fromDate, ToDate);
                         break;
                         case 6:
+                        pay.AbilityToFindOperation();
+                        break;
+                        case 7:
                         flag = false;
                         break;
                 }
