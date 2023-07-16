@@ -211,5 +211,42 @@ namespace PayrollSerivce_SQLAndADO
                 Console.WriteLine("Something Went Wrong"+ex);
             }
         }
+        public void AddEmployee(EmployeeData employee)
+        {
+            try
+            {
+                using(this.sqlConne)
+                {
+                    SqlCommand cmd = new SqlCommand("AddEmployee",this.sqlConne);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Name", employee.Name);
+                    cmd.Parameters.AddWithValue("@Salary", employee.Salary);
+                    cmd.Parameters.AddWithValue("@StarDate", employee.StartDate);
+                    cmd.Parameters.AddWithValue("@Gender", employee.Gender);
+                    cmd.Parameters.AddWithValue("@Phone", employee.Phone);
+                    cmd.Parameters.AddWithValue("@Address", employee.Address);
+                    cmd.Parameters.AddWithValue("@Department", employee.Department);
+                    cmd.Parameters.AddWithValue("@BasicPay", employee.BasicPay);
+                    cmd.Parameters.AddWithValue("@Deductions", employee.Deductions);
+                    cmd.Parameters.AddWithValue("@TaxablePay", employee.TaxablePay);
+                    cmd.Parameters.AddWithValue("@IncomeTax", employee.IncomeTax);
+                    cmd.Parameters.AddWithValue("@NetPay", employee.NetPay);
+                    this.sqlConne.Open();
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    if (rowsAffected > 0)
+                    {
+                        Console.WriteLine("Employee Added Successfully");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Employee Added UnSuccessfully");
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
     }
 }
